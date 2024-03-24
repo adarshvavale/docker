@@ -14,8 +14,8 @@ RUN unzip mediplus-lite.zip && \
     rm mediplus-lite.zip
     mv mediplus-lite/html/* .
 
-# Expose port 1010
-EXPOSE 1010
+# Expose port 1011
+EXPOSE 1011
 
 # Start Apache
 CMD ["httpd", "-DFOREGROUND"]
