@@ -13,8 +13,8 @@ ADD https://www.free-css.com/assets/files/free-css-templates/download/page296/me
 RUN unzip mediplus-lite.zip && \
     rm mediplus-lite.zip
 
-# Expose port 80
-EXPOSE 80
+# Expose port 1010
+EXPOSE 1010
 
 # Start Apache
 CMD ["httpd", "-DFOREGROUND"]
