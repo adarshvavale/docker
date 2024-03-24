@@ -1,15 +1,20 @@
 FROM centos:7
-LABEL creater="Adarsh"
-#install httpd on system
-USER root
-RUN yum install httpd -y
-RUN systemctl start httpd
-#install unzip pkg
-RUN yum install unzip -y
-RUN rm -rf /var/www/html/* .
-ADD https://www.free-css.com/assets/files/free-css-templates/download/page296/mediplus-lite.zip /var/www/html/
+
+LABEL creator="Adarsh"
+
+# Install necessary packages
+RUN yum install -y httpd unzip && \
+    yum clean all && \
+    rm -rf /var/cache/yum
+
+# Download and extract web content
 WORKDIR /var/www/html/
-RUN unzip mediplus-lite.zip
-EXPOSE 80:80
-#start the httpd service
-CMD httpd -DFOREGROUND
+ADD https://www.free-css.com/assets/files/free-css-templates/download/page296/mediplus-lite.zip .
+RUN unzip mediplus-lite.zip && \
+    rm mediplus-lite.zip
+
+# Expose port 80
+EXPOSE 80
+
+# Start Apache
+CMD ["httpd", "-DFOREGROUND"]
