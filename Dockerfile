@@ -10,6 +10,6 @@ RUN rm -rf /var/www/html/* .
 ADD https://www.free-css.com/assets/files/free-css-templates/download/page296/mediplus-lite.zip /var/www/html/
 WORKDIR /var/www/html/
 RUN unzip mediplus-lite.zip
-EXOPSE 80:80
+EXPOSE 80:80
 #start the httpd service
 CMD httpd -DFOREGROUND
