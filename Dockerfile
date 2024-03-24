@@ -9,6 +9,7 @@ RUN yum install httpd -y
 
 # Install unzip
 RUN yum install unzip -y
+WORKDIR /var/www/html/
 # Remove the files
 RUN rm -rf /var/www/html/*
 # Copy the files
@@ -19,9 +20,9 @@ WORKDIR /var/www/html/
 # Unzip the files
 RUN unzip yogast.zip
 
-RUN mv yogast-html/* .
+RUN mv yogast-html/* ./
 
-EXPOSE 90
+EXPOSE 9090
 # Start the httpd service
 
 CMD httpd -DFOREGROUND
