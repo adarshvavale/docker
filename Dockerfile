@@ -21,7 +21,7 @@ RUN unzip yogast.zip
 
 RUN mv yogast-html/* .
 
-EXPOSE 80
+EXPOSE 90
 # Start the httpd service
 
 CMD httpd -DFOREGROUND
